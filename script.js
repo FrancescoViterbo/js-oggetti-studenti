@@ -51,10 +51,15 @@ var studenti = [
 ];
 
 // Ciclo nell'array studenti e mostro i valori di ogni oggetto.
-for (var key in studenti) {
-    let parag = document.createElement("p");
-    parag.innerText = studenti[key].nome + " " + studenti[key].cognome + ", " + studenti[key].età + " anni.";
-    datiArrayStudenti.appendChild(parag);
+mostraStudenti();
+
+function mostraStudenti() {
+    datiArrayStudenti.innerHTML = "";
+    for (var key in studenti) {
+        let parag = document.createElement("p");
+        parag.innerText = studenti[key].nome + " " + studenti[key].cognome + ", " + studenti[key].età + " anni.";
+        datiArrayStudenti.appendChild(parag);
+    }
 }
 
 function creaNuovoStudente(e) {
@@ -74,6 +79,5 @@ function creaNuovoStudente(e) {
     nomeNuovoStudente.value = "";
     congnomeNuovoStudente.value = "";
     etaNuovoStudente.value = "";
-    
-    console.log(studenti);
+    mostraStudenti();
 }
